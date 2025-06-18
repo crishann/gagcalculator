@@ -6,7 +6,7 @@ body {
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
+  /* padding: 0 2rem; */
   text-align: center;
 }
 
@@ -33,17 +33,69 @@ body {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-
 .fruits {
   text-align: center;
   padding: 1rem;
 }
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+
+
+/* Both sides take 50% */
+.fruit-grid-wrapper,
+.calculation-panel {
+  width: 50%;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 0.5rem;
+  
+  border-radius: 8px;
+  background: #313131;
+  box-sizing: border-box;
+}
+
+/* Optional: Style scrollbars for WebKit browsers */
+.fruit-grid-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.fruit-grid-wrapper::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+
+.app-container {
+  display: flex;
+  flex-direction: column; /* <- add this */
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.left-panel {
+  width: 40%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.right-panel {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+
 .fruit-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: center;
-  padding: 2rem;
+  justify-content: flex-start;
+  /* padding: 2rem; */
 }
 
 .fruit-card {
@@ -93,8 +145,40 @@ body {
   text-transform: capitalize;
 }
 
+/* Calculation Panel */
+.mutations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.mutation-card {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.mutation-card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 
+.mutation-card.selected {
+  border: 1px solid #38bdf8;              /* Sky blue border */
+  background: linear-gradient(145deg, #e0f7fa, #ffffff); /* Subtle gradient */
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4); /* Soft glow */
+  transform: scale(1.05);                /* Slightly pop out */
+  transition: all 0.2s ease-in-out;
+  color: #0f172a;                        /* Dark slate for better contrast */
+  font-weight: bold;
+  border-radius: 12px;
+}
+.fruit-info {
+  margin-top: 1rem;
+}
 /* Logo Animation */
 @keyframes logo-spin {
   from {
