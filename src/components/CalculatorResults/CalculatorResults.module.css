@@ -1,0 +1,48 @@
+/* src/components/CalculatorResults/CalculatorResults.module.css */
+
+.fruit-info {
+  margin-top: 1rem;
+  padding: 15px; /* Added some padding */
+  /* border: 1px solid #ddd; */
+  border-radius: 8px;
+  background: #313131; /* Keep the dark background */
+/* Light background for the info box */
+  color: #dfdfdf;
+}
+
+.fruit-info label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.fruit-info input[type="number"] {
+  width: calc(100% - 20px); /* Account for padding */
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding in width */
+  background-color: #313131;
+  color: #ccc;
+  
+}
+
+.fruit-info input[type="number"]:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.fruit-info input[type="number"]:disabled {
+  background-color: #313131;
+  cursor: not-allowed;
+}
+
+.fruit-info p {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #e2f027;
+  margin: 0;
+}

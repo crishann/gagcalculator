@@ -1,0 +1,60 @@
+/* src/components/CalculatorPanels/CalculatorPanels.module.css */
+
+.main-content {
+  display: flex; /* This is the flex container for left and right panels */
+  justify-content: center; /* Center horizontally if there's extra space */
+  align-items: stretch; /* Make children stretch to fill container height */
+  gap: 0; /* Remove gap for a perfectly seamless 50/50 split */
+  flex-grow: 1; /* Allow main-content to fill remaining vertical space */
+  width: 100%; /* Ensure it takes full horizontal space */
+  /* Calculate height: 100% of parent minus header height.
+     This assumes h1 + its margins + app-container's top/bottom padding totals 80px.
+     Adjust '80px' if your h1 or other top elements are taller/shorter.
+     A more robust approach might be to use flexbox on the app-container directly.
+     Let's simplify by assuming constant header height for now.
+  */
+  height: calc(100% - 80px); /* Fill remaining height, account for h1 */
+}
+
+.left-panel,
+.right-panel {
+  width: 50%; /* Each takes exactly half of the main-content width */
+  flex-grow: 1; /* Allows them to fill if content is small */
+  flex-shrink: 1; /* Allows them to shrink if necessary */
+  flex-basis: 0; /* Important for equal distribution in flex containers */
+  height: 100%; /* Make panels fill the height of main-content */
+  overflow-y: auto; /* Enable scrolling for content within panels */
+  padding: 1rem; /* Consistent padding inside the panels */
+  box-sizing: border-box;
+  background: #313131; /* Keep the dark background */
+  border-radius: 0; /* Remove border-radius for seamless look */
+  color: #f0f0f0; /* Light text for dark background */
+  border: none; /* Remove any border */
+}
+
+/* Style scrollbars for WebKit browsers (apply to both panels) */
+.left-panel::-webkit-scrollbar,
+.right-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.left-panel::-webkit-scrollbar-thumb,
+.right-panel::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column; /* Stack panels vertically on small screens */
+    height: auto; /* Auto height when stacked */
+  }
+  .left-panel,
+  .right-panel {
+    width: 100%; /* Full width when stacked */
+    height: auto; /* Auto height when stacked */
+    max-height: unset; /* Remove max-height constraint */
+    overflow-y: visible; /* Allow content to push height */
+  }
+}

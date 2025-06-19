@@ -1,0 +1,46 @@
+/* src/components/MutationsSelector/MutationsSelector.module.css */
+
+.mutations-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start; /* Align to start for better flow */
+}
+
+.mutation-card {
+  width: 100px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  background-color: #313131; /* Light background for mutations */
+  color: #ffffff; /* Dark text for light background */
+  transition: all 0.2s ease;
+}
+
+.mutation-card.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+.mutation-card.selected {
+  border: 1px solid #38bdf8;
+  background: linear-gradient(145deg, #e0f7fa, #ffffff);
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.4);
+  transform: scale(1.05);
+  transition: all 0.2s ease-in-out;
+  color: #0f172a;
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+/* This was in App.css, but logically belongs with the right panel, so move it here */
+@media (max-width: 900px) {
+  .mutations-grid {
+    justify-content: center; /* Center items on smaller screens */
+  }
+}
